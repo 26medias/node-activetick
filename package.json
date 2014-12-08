@@ -5,8 +5,8 @@
 		"email": "julien@twenty-six-medias.com",
 		"url": "http://www.twenty-six-medias.com/"
 	},
-	"description": 	"Activetick HTTP API for NodeJS - Stock data",
-	"version":		"0.0.1",
+	"description": 	"Activetick intraday and historical Stock data",
+	"version":		"0.0.2",
 	"activetick": [
 	"stock",
 	"finance",
