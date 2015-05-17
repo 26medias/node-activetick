@@ -201,11 +201,11 @@ activetick.prototype.fetch 		= function(callback) {
 	
 	// Calculate how many days are in the range
 	var daysInRange = this.query.range.from.getDaysBetween(this.query.range.to);
-	toolset.log("daysInRange", daysInRange);
+	//toolset.log("daysInRange", daysInRange);
 	
 	// Calculate the number of batches
 	var batchCount = Math.ceil(daysInRange/timeframe.limit);
-	toolset.log("batchCount", batchCount);
+	//toolset.log("batchCount", batchCount);
 	
 	var ranges		= [];
 	if (batchCount > 1) {
