@@ -6,8 +6,8 @@
 		"url": "http://www.twenty-six-medias.com/"
 	},
 	"description": 	"Activetick intraday and historical Stock data",
-	"version":		"0.0.2",
-	"activetick": [
+	"version":		"0.1.0",
+	"keywords": [
 	"stock",
 	"finance",
 	"intraday",
@@ -21,7 +21,7 @@
 	"bugs": {
 		"url": "https://github.com/26medias/node-activetick/issues"
 	},
-	"main": "node-activetick.js",
+	"main": "activetick.js",
 	"readmeFilename": "README.md",
 	"licenses": [
 	{
@@ -31,7 +31,9 @@
 	"dependencies": {
 		"underscore":	"latest",
 		"toolset":		"latest",
-		"moment":		"latest"
+		"moment":		"latest",
+		"date-utils":	"latest",
+		"progress":		"latest"
 	}
 }
 

@@ -11,6 +11,14 @@ The CSV format is converted into an array of object, and the "YYYYMMDDHHMMSS" da
 - Launch the http proxy: `ActiveTickFeedHttpServer 127.0.0.1 5000 activetick1.activetick.com [apikey] [username] [password]`
 - install the nodejs package: `npm install node-activetick`
 
+## Test ##
+
+    var activetick = require('node-activetick');
+    var market = new activetick();
+    market.open('AAPL').fetchCustom(function(response) {
+    	console.log(response);
+    });
+
 ## Output format ##
 
 The output from fetch()'s callback is an array of object.
@@ -75,13 +83,11 @@ The output from fetch()'s callback is an array of object.
 
 Without options:
 
-	var activetick	= require('node-activetick');
-    var market		= new activetick();
+    var market = new activetick();
 
-With options, if Activetick's HTTP proxy is not setup with the default settings:
+With options:
 
-	var activetick	= require('node-activetick');
-	var market		= new activetick({
+	var market = new activetick({
 		host:	'127.0.0.1',
 		port:	5000
 	});
@@ -95,38 +101,25 @@ With options, if Activetick's HTTP proxy is not setup with the default settings:
 	market.from(new Date(2014,01,01))
 	market.to(new Date())
 
-### Define the timeframe ###
+### Define the type ###
 
-	market.timeframe('1h');
+You can get the prices for intraday daily or weekly values.
 
-Here are the supported timeframes:
+	market.type('intraday');
+	// or
+	market.type('daily');
+	// or
+	market.type('weekly');
 
-- weekly
-- daily
-- 12h
-- 8h
-- 6h
-- 2h
-- 1h
-- 30m
-- 15m
-- 5m
-- 1m
+If you request intraday data, you can specify the interval between each value, in minutes. Default is 5.
+
+	market.period(5);	// 5 minutes between each value
 
 ### Fetch the data ###
 
-	market.fetch(function(response) {
+	market.fetchCustom(function(response) {
 		// response is an array of objects. See "output" for format details.
 	});
-
-Activetick's HTTP proxy will return faulty data if you ask for too much at once.
-If necessary, `fetch(callback)` will split your query into smaller queries to avoid that issue.
-
-### Logging ###
-When downloading data, node-activetick will display a progress bar in the console.
-You can deactivate that by turning of the loging:
-
-	market.log = false
 
 
 ## Note ##
